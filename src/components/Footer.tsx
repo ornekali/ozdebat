@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { MapPin, Phone, Mail, Clock, ArrowRight, Hammer } from 'lucide-react';
+import Image from 'next/image';
+import { MapPin, Phone, Mail, Clock, ArrowRight } from 'lucide-react';
 
 const serviceLinks = [
   { label: 'Maçonnerie Générale', href: '/services#maconnerie' },
@@ -25,12 +26,13 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Company */}
           <div>
-            <div className="flex items-center gap-2.5 mb-5">
-              <div className="w-9 h-9 bg-secondary rounded-lg flex items-center justify-center">
-                <Hammer className="w-4.5 h-4.5 text-white" />
-              </div>
-              <span className="text-lg font-bold">OZDE <span className="text-secondary">BAT</span></span>
-            </div>
+            <Image
+              src="/images/logo.png"
+              alt="OZDE BAT"
+              width={140}
+              height={105}
+              className="h-12 w-auto brightness-0 invert mb-4"
+            />
             <p className="text-slate-400 text-sm leading-relaxed">
               Construction, rénovation et location de matériel BTP en Île-de-France.
             </p>

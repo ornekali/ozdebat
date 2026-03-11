@@ -39,6 +39,10 @@ export const metadata: Metadata = {
     title: "OZDE BAT | Construction & Rénovation en Île-de-France",
     description:
       "Maçonnerie, carrelage, travaux publics, construction neuve et location de matériel BTP en Île-de-France.",
+    images: [{ url: "/images/logo.png", width: 790, height: 592, alt: "OZDE BAT" }],
+  },
+  icons: {
+    icon: "/favicon.ico",
   },
   robots: {
     index: true,

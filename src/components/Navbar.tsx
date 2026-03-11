@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Menu, X, Phone, ChevronDown } from 'lucide-react';
 
 const navLinks = [
@@ -42,15 +43,15 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-12">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
-            <div className={`w-8 h-8 rounded-md flex items-center justify-center text-xs font-bold transition-colors ${
-              scrolled ? 'bg-secondary text-white' : 'bg-white/10 text-white border border-white/20'
-            }`}>
-              OB
-            </div>
-            <span className={`text-lg font-bold transition-colors ${scrolled ? 'text-primary' : 'text-white'}`}>
-              OZDE <span className="text-secondary">BAT</span>
-            </span>
+          <Link href="/" className="flex items-center">
+            <Image
+              src="/images/logo.png"
+              alt="OZDE BAT"
+              width={140}
+              height={105}
+              className={`h-10 w-auto transition-all ${scrolled ? 'brightness-100' : 'brightness-0 invert'}`}
+              priority
+            />
           </Link>
 
           {/* Desktop Nav */}
