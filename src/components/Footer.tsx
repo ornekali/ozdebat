@@ -1,6 +1,16 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { MapPin, Phone, Mail, Clock, ArrowRight } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
+
+const footerLinks = [
+  { label: 'Accueil', href: '/' },
+  { label: 'À Propos', href: '/a-propos' },
+  { label: 'Nos Services', href: '/services' },
+  { label: 'Réalisations', href: '/realisations' },
+  { label: 'Location Matériel', href: '/location-materiel' },
+  { label: 'Devis Gratuit', href: '/devis' },
+  { label: 'Contact', href: '/contact' },
+];
 
 const serviceLinks = [
   { label: 'Maçonnerie Générale', href: '/services#maconnerie' },
@@ -11,40 +21,37 @@ const serviceLinks = [
   { label: 'Location Matériel', href: '/location-materiel' },
 ];
 
-const quickLinks = [
-  { label: 'Accueil', href: '/' },
-  { label: 'À Propos', href: '/a-propos' },
-  { label: 'Réalisations', href: '/realisations' },
-  { label: 'Devis Gratuit', href: '/devis' },
-  { label: 'Contact', href: '/contact' },
-];
-
 export default function Footer() {
   return (
-    <footer className="bg-slate-950 text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-          {/* Company */}
+    <footer className="bg-[#1a1a2e] text-white pt-16 pb-0">
+      <div className="max-w-[1170px] mx-auto px-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12">
+          {/* Company Info */}
           <div>
             <Image
               src="/images/logo.png"
               alt="OZDE BAT"
               width={140}
-              height={105}
-              className="h-12 w-auto brightness-0 invert mb-4"
+              height={70}
+              className="h-14 w-auto brightness-0 invert mb-4"
             />
-            <p className="text-slate-400 text-sm leading-relaxed">
+            <p className="text-gray-400 text-sm leading-6 mb-4">
               Construction, rénovation et location de matériel BTP en Île-de-France.
+              Qualité, fiabilité et transparence.
             </p>
           </div>
 
-          {/* Services */}
+          {/* Quick Links */}
           <div>
-            <h4 className="font-semibold text-sm uppercase tracking-wider text-slate-300 mb-4">Services</h4>
-            <ul className="space-y-2.5">
-              {serviceLinks.map((item) => (
+            <h6 className="text-base font-bold mb-5 text-white">Liens Utiles</h6>
+            <ul className="space-y-2">
+              {footerLinks.map((item) => (
                 <li key={item.href}>
-                  <Link href={item.href} className="text-slate-400 hover:text-white text-sm transition-colors">
+                  <Link
+                    href={item.href}
+                    className="flex items-center gap-2 text-gray-400 text-sm hover:text-secondary transition-colors"
+                  >
+                    <ChevronRight className="w-3 h-3" />
                     {item.label}
                   </Link>
                 </li>
@@ -52,57 +59,65 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Links */}
+          {/* Business Hours */}
           <div>
-            <h4 className="font-semibold text-sm uppercase tracking-wider text-slate-300 mb-4">Liens</h4>
-            <ul className="space-y-2.5">
-              {quickLinks.map((item) => (
-                <li key={item.href}>
-                  <Link href={item.href} className="text-slate-400 hover:text-white text-sm transition-colors">
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
+            <h6 className="text-base font-bold mb-5 text-white">Horaires</h6>
+            <ul className="space-y-3 text-sm">
+              <li className="flex justify-between text-gray-400">
+                <span>Lundi - Vendredi</span>
+                <span className="text-white">8h - 18h</span>
+              </li>
+              <li className="flex justify-between text-gray-400">
+                <span>Samedi</span>
+                <span className="text-white">9h - 14h</span>
+              </li>
+              <li className="flex justify-between text-gray-400">
+                <span>Dimanche</span>
+                <span className="text-white">Fermé</span>
+              </li>
             </ul>
+            <p className="text-secondary text-sm font-medium mt-4">
+              Intervention d&apos;urgence disponible !
+            </p>
           </div>
 
           {/* Contact */}
           <div>
-            <h4 className="font-semibold text-sm uppercase tracking-wider text-slate-300 mb-4">Contact</h4>
-            <ul className="space-y-3 text-sm">
+            <h6 className="text-base font-bold mb-5 text-white">Contact</h6>
+            <ul className="space-y-3 text-sm text-gray-400">
               <li>
-                <a href="tel:+33768059389" className="flex items-center gap-2.5 text-slate-400 hover:text-white transition-colors">
-                  <Phone className="w-4 h-4 text-secondary shrink-0" />
+                <span className="text-white font-medium block mb-1">Adresse</span>
+                1 Av. Jean Jacques Rousseau,<br />
+                93290 Tremblay-en-France
+              </li>
+              <li>
+                <span className="text-white font-medium block mb-1">Téléphone</span>
+                <a href="tel:+33768059389" className="hover:text-secondary transition-colors">
                   07 68 05 93 89
                 </a>
               </li>
               <li>
-                <a href="mailto:contact@ozdebat.fr" className="flex items-center gap-2.5 text-slate-400 hover:text-white transition-colors">
-                  <Mail className="w-4 h-4 text-secondary shrink-0" />
+                <span className="text-white font-medium block mb-1">Email</span>
+                <a href="mailto:contact@ozdebat.fr" className="hover:text-secondary transition-colors">
                   contact@ozdebat.fr
                 </a>
-              </li>
-              <li className="flex items-start gap-2.5 text-slate-400">
-                <MapPin className="w-4 h-4 text-secondary shrink-0 mt-0.5" />
-                <span>1 Avenue Jean Jacques Rousseau, 93290 Tremblay-en-France</span>
-              </li>
-              <li className="flex items-start gap-2.5 text-slate-400">
-                <Clock className="w-4 h-4 text-secondary shrink-0 mt-0.5" />
-                <span>Lun-Ven: 8h-18h &middot; Sam: 9h-14h</span>
               </li>
             </ul>
           </div>
         </div>
       </div>
 
-      {/* Bottom */}
-      <div className="border-t border-slate-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-slate-500 text-xs">
+      {/* Bottom Bar */}
+      <div className="border-t border-white/10">
+        <div className="max-w-[1170px] mx-auto px-4 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <p className="text-gray-500 text-xs">
             &copy; {new Date().getFullYear()} OZDE BAT SAS &middot; RCS Bobigny 101 200 830
           </p>
-          <Link href="/devis" className="inline-flex items-center gap-1.5 text-secondary text-xs font-medium hover:underline">
-            Devis gratuit <ArrowRight className="w-3 h-3" />
+          <Link
+            href="/devis"
+            className="text-secondary text-xs font-medium hover:underline"
+          >
+            Devis gratuit →
           </Link>
         </div>
       </div>

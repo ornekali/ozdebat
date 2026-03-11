@@ -2,6 +2,7 @@
 
 import { useState, FormEvent } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { Send, CheckCircle, Phone, Clock, Shield, ArrowRight, Loader2, AlertCircle } from 'lucide-react';
 
 const serviceOptions = [
@@ -67,23 +68,26 @@ export default function DevisPage() {
 
   return (
     <>
-      {/* Hero */}
-      <section className="relative py-28 bg-primary overflow-hidden">
-        <Image src="/images/construction-maison-extension.jpg" alt="" fill className="object-cover opacity-15" />
-        <div className="absolute inset-0 bg-black/50" />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-secondary font-semibold text-sm uppercase tracking-widest mb-3">Devis</p>
-          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">Devis Gratuit</h1>
-          <p className="text-white/50 text-lg max-w-xl mx-auto">
-            Décrivez votre projet, recevez un devis détaillé sous 24h. Sans engagement.
-          </p>
+      {/* Page Header */}
+      <section className="relative py-20 mt-[112px] md:mt-[120px] bg-dark overflow-hidden">
+        <Image src="/images/construction-maison-extension.jpg" alt="" fill className="object-cover opacity-20" sizes="100vw" />
+        <div className="absolute inset-0 bg-gradient-to-r from-dark/80 to-dark/60" />
+        <div className="relative z-10 max-w-[1170px] mx-auto px-4 text-center">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">Devis Gratuit</h2>
+          <nav aria-label="breadcrumb">
+            <ol className="flex items-center justify-center gap-2 text-sm">
+              <li><Link href="/" className="text-white/70 hover:text-secondary transition-colors">Accueil</Link></li>
+              <li className="text-white/40">/</li>
+              <li className="text-secondary font-medium">Devis</li>
+            </ol>
+          </nav>
         </div>
       </section>
 
       {/* Trust Badges */}
-      <section className="py-8 bg-gray-50 border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="flex flex-wrap items-center justify-center gap-8 text-sm text-gray-600">
+      <section className="py-6 bg-light border-b border-gray-200">
+        <div className="max-w-[1170px] mx-auto px-4">
+          <div className="flex flex-wrap items-center justify-center gap-8 text-sm text-muted">
             <span className="flex items-center gap-2">
               <Shield className="w-5 h-5 text-secondary" /> Sans engagement
             </span>
@@ -98,153 +102,96 @@ export default function DevisPage() {
       </section>
 
       {/* Form */}
-      <section className="py-24">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 lg:py-24">
+        <div className="max-w-[800px] mx-auto px-4">
           {submitted ? (
-            <div className="bg-green-50 rounded-3xl p-12 text-center border border-green-100">
+            <div className="bg-green-50 p-12 text-center border border-green-100">
               <CheckCircle className="w-20 h-20 text-green-500 mx-auto mb-6" />
               <h2 className="text-3xl font-bold text-green-800 mb-4">
                 Demande de Devis Envoyée !
               </h2>
-              <p className="text-green-700 text-lg mb-8 max-w-lg mx-auto">
+              <p className="text-green-700 text-base mb-8 max-w-lg mx-auto">
                 Merci pour votre demande. Notre équipe va étudier votre projet
                 et vous contactera sous 24 heures avec un devis détaillé.
               </p>
-              <a
-                href="/"
-                className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-xl font-semibold transition-colors"
-              >
-                Retour à l&apos;accueil
-                <ArrowRight className="w-4 h-4" />
-              </a>
+              <Link href="/" className="main-btn inline-flex items-center gap-2">
+                Retour à l&apos;accueil <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
           ) : (
-            <div className="bg-white rounded-3xl shadow-xl border border-gray-100 p-8 sm:p-12">
-              <h2 className="text-3xl font-bold text-primary mb-2">Votre Projet</h2>
-              <div className="w-12 h-0.5 bg-secondary rounded-full mb-8" />
-              <p className="text-gray-600 mb-10">
+            <div className="bg-white shadow-xl border border-gray-100 p-8 sm:p-12">
+              <h2 className="text-2xl sm:text-3xl font-bold text-dark mb-2">Votre Projet</h2>
+              <div className="w-12 h-[3px] bg-secondary mb-8" />
+              <p className="text-muted mb-10">
                 Remplissez le formulaire ci-dessous pour recevoir votre devis gratuit.
                 Plus votre description est détaillée, plus le devis sera précis.
               </p>
 
               {error && (
-                <div className="mb-8 p-4 bg-red-50 border border-red-200 rounded-xl flex items-center gap-3 text-red-700">
+                <div className="mb-8 p-4 bg-red-50 border border-red-200 flex items-center gap-3 text-red-700">
                   <AlertCircle className="w-5 h-5 shrink-0" />
                   <span>{error}</span>
                 </div>
               )}
 
               <form onSubmit={handleSubmit} className="space-y-8">
-                {/* Personal Info */}
+                {/* Step 1 */}
                 <div>
-                  <h3 className="text-lg font-semibold text-primary mb-4 flex items-center gap-2">
-                    <span className="w-8 h-8 bg-secondary text-white rounded-full flex items-center justify-center text-sm">1</span>
+                  <h3 className="text-lg font-semibold text-dark mb-4 flex items-center gap-2">
+                    <span className="w-8 h-8 bg-secondary text-white flex items-center justify-center text-sm">1</span>
                     Vos Coordonnées
                   </h3>
                   <div className="grid sm:grid-cols-2 gap-6">
                     <div>
-                      <label htmlFor="nom" className="block text-sm font-medium text-gray-700 mb-2">
-                        Nom complet *
-                      </label>
-                      <input
-                        id="nom"
-                        name="nom"
-                        type="text"
-                        required
-                        placeholder="Jean Dupont"
-                        className="form-input w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-gray-900 placeholder-gray-400"
-                      />
+                      <label htmlFor="nom" className="block text-sm font-medium text-dark mb-2">Nom complet *</label>
+                      <input id="nom" name="nom" type="text" required placeholder="Jean Dupont"
+                        className="form-input w-full px-4 py-3 border border-gray-200 bg-light text-dark placeholder-muted text-sm" />
                     </div>
                     <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                        Email *
-                      </label>
-                      <input
-                        id="email"
-                        name="email"
-                        type="email"
-                        required
-                        placeholder="jean@exemple.fr"
-                        className="form-input w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-gray-900 placeholder-gray-400"
-                      />
+                      <label htmlFor="email" className="block text-sm font-medium text-dark mb-2">Email *</label>
+                      <input id="email" name="email" type="email" required placeholder="jean@exemple.fr"
+                        className="form-input w-full px-4 py-3 border border-gray-200 bg-light text-dark placeholder-muted text-sm" />
                     </div>
                     <div>
-                      <label htmlFor="telephone" className="block text-sm font-medium text-gray-700 mb-2">
-                        Téléphone *
-                      </label>
-                      <input
-                        id="telephone"
-                        name="telephone"
-                        type="tel"
-                        required
-                        placeholder="06 XX XX XX XX"
-                        className="form-input w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-gray-900 placeholder-gray-400"
-                      />
+                      <label htmlFor="telephone" className="block text-sm font-medium text-dark mb-2">Téléphone *</label>
+                      <input id="telephone" name="telephone" type="tel" required placeholder="06 XX XX XX XX"
+                        className="form-input w-full px-4 py-3 border border-gray-200 bg-light text-dark placeholder-muted text-sm" />
                     </div>
                     <div>
-                      <label htmlFor="ville" className="block text-sm font-medium text-gray-700 mb-2">
-                        Ville / Code Postal *
-                      </label>
-                      <input
-                        id="ville"
-                        name="ville"
-                        type="text"
-                        required
-                        placeholder="93290 Tremblay-en-France"
-                        className="form-input w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-gray-900 placeholder-gray-400"
-                      />
+                      <label htmlFor="ville" className="block text-sm font-medium text-dark mb-2">Ville / Code Postal *</label>
+                      <input id="ville" name="ville" type="text" required placeholder="93290 Tremblay-en-France"
+                        className="form-input w-full px-4 py-3 border border-gray-200 bg-light text-dark placeholder-muted text-sm" />
                     </div>
                   </div>
                 </div>
 
-                {/* Project Details */}
+                {/* Step 2 */}
                 <div>
-                  <h3 className="text-lg font-semibold text-primary mb-4 flex items-center gap-2">
-                    <span className="w-8 h-8 bg-secondary text-white rounded-full flex items-center justify-center text-sm">2</span>
+                  <h3 className="text-lg font-semibold text-dark mb-4 flex items-center gap-2">
+                    <span className="w-8 h-8 bg-secondary text-white flex items-center justify-center text-sm">2</span>
                     Votre Projet
                   </h3>
                   <div className="space-y-6">
                     <div>
-                      <label htmlFor="service" className="block text-sm font-medium text-gray-700 mb-2">
-                        Type de service *
-                      </label>
-                      <select
-                        id="service"
-                        name="service"
-                        required
-                        className="form-input w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-gray-900"
-                        defaultValue=""
-                      >
+                      <label htmlFor="service" className="block text-sm font-medium text-dark mb-2">Type de service *</label>
+                      <select id="service" name="service" required defaultValue=""
+                        className="form-input w-full px-4 py-3 border border-gray-200 bg-light text-dark text-sm">
                         <option value="" disabled>Choisir un service</option>
                         {serviceOptions.map((s) => (
                           <option key={s} value={s}>{s}</option>
                         ))}
                       </select>
                     </div>
-
                     <div className="grid sm:grid-cols-2 gap-6">
                       <div>
-                        <label htmlFor="surface" className="block text-sm font-medium text-gray-700 mb-2">
-                          Surface approximative
-                        </label>
-                        <input
-                          id="surface"
-                          name="surface"
-                          type="text"
-                          placeholder="ex: 80 m²"
-                          className="form-input w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-gray-900 placeholder-gray-400"
-                        />
+                        <label htmlFor="surface" className="block text-sm font-medium text-dark mb-2">Surface approximative</label>
+                        <input id="surface" name="surface" type="text" placeholder="ex: 80 m²"
+                          className="form-input w-full px-4 py-3 border border-gray-200 bg-light text-dark placeholder-muted text-sm" />
                       </div>
                       <div>
-                        <label htmlFor="budget" className="block text-sm font-medium text-gray-700 mb-2">
-                          Budget estimé
-                        </label>
-                        <select
-                          id="budget"
-                          name="budget"
-                          className="form-input w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-gray-900"
-                          defaultValue=""
-                        >
+                        <label htmlFor="budget" className="block text-sm font-medium text-dark mb-2">Budget estimé</label>
+                        <select id="budget" name="budget" defaultValue=""
+                          className="form-input w-full px-4 py-3 border border-gray-200 bg-light text-dark text-sm">
                           <option value="">Fourchette de budget</option>
                           <option value="Moins de 5 000 €">Moins de 5 000 &euro;</option>
                           <option value="5 000 - 15 000 €">5 000 - 15 000 &euro;</option>
@@ -255,17 +202,10 @@ export default function DevisPage() {
                         </select>
                       </div>
                     </div>
-
                     <div>
-                      <label htmlFor="dateDebut" className="block text-sm font-medium text-gray-700 mb-2">
-                        Date souhaitée de début
-                      </label>
-                      <select
-                        id="dateDebut"
-                        name="dateDebut"
-                        className="form-input w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-gray-900"
-                        defaultValue=""
-                      >
+                      <label htmlFor="dateDebut" className="block text-sm font-medium text-dark mb-2">Date souhaitée</label>
+                      <select id="dateDebut" name="dateDebut" defaultValue=""
+                        className="form-input w-full px-4 py-3 border border-gray-200 bg-light text-dark text-sm">
                         <option value="">Quand souhaitez-vous commencer ?</option>
                         <option value="Dès que possible">Dès que possible</option>
                         <option value="Dans le mois">Dans le mois</option>
@@ -274,43 +214,26 @@ export default function DevisPage() {
                         <option value="Date flexible">Date flexible</option>
                       </select>
                     </div>
-
                     <div>
-                      <label htmlFor="description" className="block text-sm font-medium text-gray-700 mb-2">
-                        Description du projet *
-                      </label>
-                      <textarea
-                        id="description"
-                        name="description"
-                        required
-                        rows={6}
-                        placeholder="Décrivez votre projet en détail : type de travaux, surface, matériaux souhaités, contraintes particulières..."
-                        className="form-input w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-gray-900 placeholder-gray-400 resize-none"
-                      />
+                      <label htmlFor="description" className="block text-sm font-medium text-dark mb-2">Description du projet *</label>
+                      <textarea id="description" name="description" required rows={6}
+                        placeholder="Décrivez votre projet en détail..."
+                        className="form-input w-full px-4 py-3 border border-gray-200 bg-light text-dark placeholder-muted resize-none text-sm" />
                     </div>
                   </div>
                 </div>
 
                 {/* Submit */}
                 <div className="pt-4 border-t border-gray-100">
-                  <button
-                    type="submit"
-                    disabled={loading}
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-secondary hover:bg-secondary/90 text-white px-10 py-4 rounded-xl text-lg font-semibold transition-all hover:shadow-xl hover:shadow-secondary/25 active:scale-95 disabled:opacity-60 disabled:cursor-not-allowed"
-                  >
+                  <button type="submit" disabled={loading}
+                    className="main-btn inline-flex items-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed">
                     {loading ? (
-                      <>
-                        <Loader2 className="w-5 h-5 animate-spin" />
-                        Envoi en cours...
-                      </>
+                      <><Loader2 className="w-4 h-4 animate-spin" /> Envoi en cours...</>
                     ) : (
-                      <>
-                        <Send className="w-5 h-5" />
-                        Envoyer ma Demande de Devis
-                      </>
+                      <><Send className="w-4 h-4" /> Envoyer ma Demande de Devis</>
                     )}
                   </button>
-                  <p className="text-gray-500 text-sm mt-4">
+                  <p className="text-muted text-xs mt-4">
                     * Champs obligatoires. Vos données sont traitées de manière confidentielle.
                   </p>
                 </div>

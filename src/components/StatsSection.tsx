@@ -1,12 +1,12 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
 
 const stats = [
   { value: 150, suffix: '+', label: 'Projets Réalisés' },
   { value: 120, suffix: '+', label: 'Clients Satisfaits' },
-  { value: 10, suffix: '+', label: "Ans d'Expérience" },
-  { value: 100, suffix: '%', label: 'Satisfaction' },
+  { value: 10, suffix: '/10', label: 'Note Moyenne' },
 ];
 
 function StatItem({ value, suffix, label, shouldStart }: { value: number; suffix: string; label: string; shouldStart: boolean }) {
@@ -15,7 +15,7 @@ function StatItem({ value, suffix, label, shouldStart }: { value: number; suffix
   useEffect(() => {
     if (!shouldStart) return;
     let start = 0;
-    const increment = value / 125;
+    const increment = value / 100;
     const timer = setInterval(() => {
       start += increment;
       if (start >= value) { setCount(value); clearInterval(timer); }
@@ -25,11 +25,11 @@ function StatItem({ value, suffix, label, shouldStart }: { value: number; suffix
   }, [value, shouldStart]);
 
   return (
-    <div className="text-center">
-      <div className="text-4xl sm:text-5xl font-bold text-white tabular-nums">
-        {count}<span className="text-secondary">{suffix}</span>
-      </div>
-      <p className="text-white/50 text-sm mt-2">{label}</p>
+    <div className="text-center lg:text-left">
+      <h5 className="text-4xl sm:text-5xl font-bold text-dark mb-1">
+        <span className="text-secondary tabular-nums">{count}</span>{suffix}
+      </h5>
+      <p className="text-muted text-sm uppercase tracking-wider">{label}</p>
     </div>
   );
 }
@@ -48,12 +48,42 @@ export default function StatsSection() {
   }, []);
 
   return (
-    <section ref={ref} className="py-16 bg-primary">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-          {stats.map((stat) => (
-            <StatItem key={stat.label} {...stat} shouldStart={visible} />
-          ))}
+    <section ref={ref} className="py-20 lg:py-24">
+      <div className="max-w-[1170px] mx-auto px-4">
+        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+          {/* Image */}
+          <div className="lg:w-5/12">
+            <div className="relative aspect-[4/5] rounded-lg overflow-hidden shadow-2xl">
+              <Image
+                src="/images/equipe-ferraillage-beton.jpg"
+                alt="Équipe OZDE BAT"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 40vw"
+              />
+            </div>
+          </div>
+
+          {/* Content */}
+          <div className="lg:w-7/12">
+            <h4 className="text-2xl sm:text-3xl lg:text-[32px] font-bold leading-snug text-dark mb-6">
+              Un Service Personnalisé<br />
+              et de Haute Qualité
+            </h4>
+            <p className="text-muted text-base leading-7 mb-10">
+              Chaque projet est unique et mérite une attention particulière.
+              Nous vous accompagnons de A à Z, de la conception à la livraison,
+              avec un engagement total envers la qualité et le respect des délais.
+              Notre équipe de professionnels qualifiés garantit un résultat à la
+              hauteur de vos attentes.
+            </p>
+
+            <div className="flex flex-wrap gap-8 sm:gap-12">
+              {stats.map((stat) => (
+                <StatItem key={stat.label} {...stat} shouldStart={visible} />
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>

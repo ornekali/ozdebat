@@ -1,98 +1,79 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Building2, Hammer, PaintBucket, HardHat, Truck, ArrowRight } from 'lucide-react';
+import { Building2, PaintBucket, Hammer, HardHat, Ruler, Truck } from 'lucide-react';
 
 const services = [
   {
     icon: Building2,
     title: 'Maçonnerie Générale',
-    description: 'Murs, fondations, dalles et gros œuvre.',
-    image: '/images/ferraillage-dalle-grande.jpg',
+    description: 'Murs porteurs, fondations, dalles béton et gros œuvre. Maçonnerie traditionnelle et moderne.',
     href: '/services#maconnerie',
   },
   {
     icon: PaintBucket,
-    title: 'Carrelage',
-    description: 'Carrelage intérieur, extérieur et faïence.',
-    image: '/images/beton-ancrage-fini.jpg',
+    title: 'Carrelage & Revêtements',
+    description: 'Pose de carrelage intérieur et extérieur, faïence, mosaïque et pierre naturelle.',
     href: '/services#carrelage',
   },
   {
     icon: Hammer,
-    title: 'Rénovation',
-    description: 'Rénovation complète d\'appartements et maisons.',
-    image: '/images/renovation-combles-avant.jpg',
+    title: 'Rénovation Complète',
+    description: 'Rénovation intégrale d\'appartements, maisons et locaux commerciaux.',
     href: '/services#renovation',
   },
   {
     icon: HardHat,
     title: 'Travaux Publics',
-    description: 'Terrassement, voirie et aménagements.',
-    image: '/images/fondation-longrines.jpg',
+    description: 'Terrassement, voirie, réseaux, assainissement et aménagements extérieurs.',
     href: '/services#travaux-publics',
   },
   {
-    icon: Building2,
+    icon: Ruler,
     title: 'Construction Neuve',
-    description: 'Construction résidentielle et commerciale.',
-    image: '/images/construction-maison-extension.jpg',
+    description: 'Maisons individuelles, immeubles résidentiels et bâtiments commerciaux clé en main.',
     href: '/services#construction',
   },
   {
     icon: Truck,
     title: 'Location Matériel',
-    description: 'Pelleteuses, camions et bétonnières.',
-    image: '/images/mini-pelle.jpg',
+    description: 'Pelleteuses, camions, bétonnières et équipements BTP avec livraison sur site.',
     href: '/location-materiel',
   },
 ];
 
 export default function ServicesPreview() {
   return (
-    <section className="py-20 lg:py-28">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-20 lg:py-24 bg-light">
+      <div className="max-w-[1170px] mx-auto px-4">
+        {/* Heading */}
         <div className="text-center mb-14">
-          <p className="text-secondary font-semibold text-sm uppercase tracking-widest mb-3">Nos Services</p>
-          <h2 className="text-3xl sm:text-4xl font-bold text-primary">
-            Ce que nous faisons
-          </h2>
+          <h3 className="text-3xl sm:text-4xl font-bold text-dark section-line">
+            Nos Services
+          </h3>
+          <p className="text-muted mt-6 max-w-xl mx-auto">
+            Une gamme complète de services BTP pour vos projets en Île-de-France.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {/* Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
           {services.map((service) => (
             <Link
               key={service.title}
               href={service.href}
-              className="group relative h-72 rounded-xl overflow-hidden"
+              className="group bg-white p-8 text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
             >
-              <Image
-                src={service.image}
-                alt={service.title}
-                fill
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-
-              <div className="absolute bottom-0 left-0 right-0 p-5">
-                <div className="flex items-center gap-2.5 mb-2">
-                  <service.icon className="w-5 h-5 text-secondary" />
-                  <h3 className="text-lg font-bold text-white">{service.title}</h3>
-                </div>
-                <p className="text-white/60 text-sm">{service.description}</p>
+              <div className="w-20 h-20 mx-auto mb-6 flex items-center justify-center">
+                <service.icon className="w-12 h-12 text-secondary group-hover:scale-110 transition-transform" />
               </div>
+              <h5 className="text-lg font-bold text-dark mb-3 group-hover:text-secondary transition-colors">
+                {service.title}
+              </h5>
+              <p className="text-muted text-sm leading-6">
+                {service.description}
+              </p>
             </Link>
           ))}
-        </div>
-
-        <div className="text-center mt-10">
-          <Link
-            href="/services"
-            className="inline-flex items-center gap-2 text-secondary font-semibold text-sm hover:gap-3 transition-all group"
-          >
-            Voir tous les services
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-          </Link>
         </div>
       </div>
     </section>

@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
+import PageHeader from '@/components/PageHeader';
 import {
   Building2, PaintBucket, Hammer, HardHat, Ruler, ArrowRight,
   CheckCircle2, Phone
@@ -92,32 +93,25 @@ const services = [
 export default function ServicesPage() {
   return (
     <>
-      {/* Hero */}
-      <section className="relative py-28 bg-primary overflow-hidden">
-        <Image src="/images/chantier-ferraillage-mur.jpg" alt="" fill className="object-cover opacity-15" />
-        <div className="absolute inset-0 bg-black/50" />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-secondary font-semibold text-sm uppercase tracking-widest mb-3">Nos Expertises</p>
-          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">Nos Services</h1>
-          <p className="text-white/50 text-lg max-w-xl mx-auto">
-            Une gamme complète de services BTP pour vos projets en Île-de-France.
-          </p>
-        </div>
-      </section>
+      <PageHeader
+        title="Nos Services"
+        breadcrumb="Services"
+        bgImage="/images/chantier-ferraillage-mur.jpg"
+      />
 
       {/* Services */}
-      <section className="py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="space-y-32">
+      <section className="py-20 lg:py-24">
+        <div className="max-w-[1170px] mx-auto px-4">
+          <div className="space-y-24">
             {services.map((service, index) => (
               <div
                 key={service.id}
                 id={service.id}
-                className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-12 items-center scroll-mt-28`}
+                className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-12 items-center scroll-mt-32`}
               >
                 {/* Image */}
                 <div className="flex-1 w-full">
-                  <div className="relative rounded-3xl overflow-hidden shadow-2xl group aspect-[4/3]">
+                  <div className="relative aspect-[4/3] overflow-hidden shadow-2xl group">
                     <Image
                       src={service.image}
                       alt={service.title}
@@ -125,8 +119,7 @@ export default function ServicesPage() {
                       className="object-cover group-hover:scale-105 transition-transform duration-700"
                       sizes="(max-width: 1024px) 100vw, 50vw"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent" />
-                    <div className="absolute top-4 left-4 w-14 h-14 bg-secondary rounded-2xl flex items-center justify-center shadow-lg">
+                    <div className="absolute top-4 left-4 w-14 h-14 bg-secondary flex items-center justify-center shadow-lg">
                       <service.icon className="w-7 h-7 text-white" />
                     </div>
                   </div>
@@ -134,27 +127,24 @@ export default function ServicesPage() {
 
                 {/* Content */}
                 <div className="flex-1">
-                  <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-4">
+                  <h2 className="text-2xl sm:text-3xl font-bold text-dark mb-4">
                     {service.title}
                   </h2>
-                  <div className="w-16 h-1 bg-gradient-to-r from-secondary to-accent rounded-full mb-6" />
-                  <p className="text-gray-600 text-lg leading-relaxed mb-8">
+                  <div className="w-12 h-[3px] bg-secondary mb-6" />
+                  <p className="text-muted text-base leading-7 mb-8">
                     {service.description}
                   </p>
                   <ul className="space-y-3 mb-8">
                     {service.features.map((feature) => (
                       <li key={feature} className="flex items-start gap-3">
                         <CheckCircle2 className="w-5 h-5 text-secondary mt-0.5 shrink-0" />
-                        <span className="text-gray-700">{feature}</span>
+                        <span className="text-dark/80 text-sm">{feature}</span>
                       </li>
                     ))}
                   </ul>
-                  <Link
-                    href="/devis"
-                    className="inline-flex items-center gap-2 bg-secondary hover:bg-secondary/90 text-white px-6 py-3 rounded-2xl font-semibold transition-all group hover:shadow-lg hover:shadow-secondary/25 active:scale-95"
-                  >
+                  <Link href="/devis" className="main-btn inline-flex items-center gap-2">
                     Demander un Devis
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="w-4 h-4" />
                   </Link>
                 </div>
               </div>
@@ -164,28 +154,22 @@ export default function ServicesPage() {
       </section>
 
       {/* Bottom CTA */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-4">
+      <section className="py-20 bg-light">
+        <div className="max-w-[800px] mx-auto px-4 text-center">
+          <h2 className="text-3xl sm:text-4xl font-bold text-dark mb-4">
             Besoin d&apos;un Service Sur Mesure ?
           </h2>
-          <p className="text-gray-600 text-lg mb-8">
+          <p className="text-muted text-base mb-8">
             Chaque projet est unique. Contactez-nous pour discuter de vos besoins
             spécifiques et obtenir une solution adaptée.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link
-              href="/devis"
-              className="inline-flex items-center gap-2 bg-secondary hover:bg-secondary/90 text-white px-8 py-4 rounded-2xl text-lg font-semibold transition-all group hover:shadow-lg hover:shadow-secondary/25 active:scale-95"
-            >
+            <Link href="/devis" className="main-btn inline-flex items-center gap-2">
               Devis Gratuit
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-4 h-4" />
             </Link>
-            <a
-              href="tel:+33768059389"
-              className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-2xl text-lg font-medium transition-all"
-            >
-              <Phone className="w-5 h-5" />
+            <a href="tel:+33768059389" className="inline-flex items-center gap-2 text-dark font-medium hover:text-secondary transition-colors">
+              <Phone className="w-4 h-4" />
               07 68 05 93 89
             </a>
           </div>

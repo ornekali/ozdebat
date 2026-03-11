@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
+import PageHeader from '@/components/PageHeader';
 import {
   Truck, HardHat, Wrench, ArrowRight, CheckCircle2, Phone,
   Clock, Shield, MapPin, Info
@@ -44,7 +45,7 @@ const equipment = [
         name: 'Camion Benne 3.5T',
         description: 'Transport de gravats, terre et matériaux de construction. Permis B suffisant.',
         image: '/images/fondation-longrines.jpg',
-        features: ['PTAC 3.5T', 'Benne basculante', 'Location avec ou sans chauffeur'],
+        features: ['PTAC 3.5T', 'Benne basculante', 'Avec ou sans chauffeur'],
       },
       {
         name: 'Camion Benne 19T - 26T',
@@ -56,7 +57,7 @@ const equipment = [
         name: 'Fourgon Utilitaire',
         description: 'Transport d\'outils, équipements et petits matériaux de chantier.',
         image: '/images/equipe-dalle-etancheite.jpg',
-        features: ['12 à 20 m³', 'Hayon élévateur en option', 'Kilométrage illimité'],
+        features: ['12 à 20 m³', 'Hayon en option', 'Kilométrage illimité'],
       },
     ],
   },
@@ -96,31 +97,24 @@ const advantages = [
 export default function LocationMaterielPage() {
   return (
     <>
-      {/* Hero */}
-      <section className="relative py-28 bg-primary overflow-hidden">
-        <Image src="/images/mini-pelle.jpg" alt="" fill className="object-cover opacity-15" />
-        <div className="absolute inset-0 bg-black/50" />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-secondary font-semibold text-sm uppercase tracking-widest mb-3">Location</p>
-          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">Location de Matériel BTP</h1>
-          <p className="text-white/50 text-lg max-w-xl mx-auto">
-            Pelleteuses, camions, bétonnières pour vos chantiers en Île-de-France.
-          </p>
-        </div>
-      </section>
+      <PageHeader
+        title="Location de Matériel BTP"
+        breadcrumb="Location Matériel"
+        bgImage="/images/mini-pelle.jpg"
+      />
 
       {/* Advantages */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-16 bg-light">
+        <div className="max-w-[1170px] mx-auto px-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {advantages.map((adv) => (
-              <div key={adv.title} className="flex items-start gap-4 bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
-                <div className="w-12 h-12 bg-secondary/10 rounded-xl flex items-center justify-center shrink-0">
+              <div key={adv.title} className="flex items-start gap-4 bg-white p-6 shadow-sm">
+                <div className="w-12 h-12 bg-secondary/10 flex items-center justify-center shrink-0">
                   <adv.icon className="w-6 h-6 text-secondary" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-primary mb-1">{adv.title}</h3>
-                  <p className="text-gray-600 text-sm">{adv.description}</p>
+                  <h4 className="font-bold text-dark mb-1 text-sm">{adv.title}</h4>
+                  <p className="text-muted text-xs">{adv.description}</p>
                 </div>
               </div>
             ))}
@@ -128,24 +122,24 @@ export default function LocationMaterielPage() {
         </div>
       </section>
 
-      {/* Equipment Categories */}
-      <section className="py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Equipment */}
+      <section className="py-20 lg:py-24">
+        <div className="max-w-[1170px] mx-auto px-4">
           {equipment.map((category) => (
             <div key={category.category} className="mb-20 last:mb-0">
               <div className="flex items-center gap-4 mb-10">
-                <div className="w-14 h-14 bg-secondary rounded-2xl flex items-center justify-center">
+                <div className="w-14 h-14 bg-secondary flex items-center justify-center">
                   <category.icon className="w-7 h-7 text-white" />
                 </div>
                 <div>
-                  <h2 className="text-3xl font-bold text-primary">{category.category}</h2>
-                  <div className="w-12 h-0.5 bg-secondary rounded-full mt-2" />
+                  <h2 className="text-2xl sm:text-3xl font-bold text-dark">{category.category}</h2>
+                  <div className="w-12 h-[3px] bg-secondary mt-2" />
                 </div>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {category.items.map((item) => (
-                  <div key={item.name} className="group bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-2xl hover:shadow-secondary/10 transition-all duration-500 hover:-translate-y-1">
+                  <div key={item.name} className="group bg-white overflow-hidden shadow-sm hover:shadow-xl transition-all">
                     <div className="relative h-48 overflow-hidden">
                       <Image
                         src={item.image}
@@ -154,24 +148,20 @@ export default function LocationMaterielPage() {
                         className="object-cover group-hover:scale-110 transition-transform duration-700"
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-primary/50 to-transparent" />
                     </div>
                     <div className="p-6">
-                      <h3 className="text-xl font-bold text-primary mb-2">{item.name}</h3>
-                      <p className="text-gray-600 text-sm mb-4">{item.description}</p>
+                      <h3 className="text-lg font-bold text-dark mb-2">{item.name}</h3>
+                      <p className="text-muted text-sm mb-4">{item.description}</p>
                       <ul className="space-y-2 mb-6">
                         {item.features.map((f) => (
-                          <li key={f} className="flex items-center gap-2 text-sm text-gray-700">
+                          <li key={f} className="flex items-center gap-2 text-sm text-dark/80">
                             <CheckCircle2 className="w-4 h-4 text-secondary shrink-0" />
                             {f}
                           </li>
                         ))}
                       </ul>
-                      <Link
-                        href="/devis"
-                        className="inline-flex items-center gap-2 text-secondary font-semibold text-sm hover:gap-3 transition-all"
-                      >
-                        Demander un devis <ArrowRight className="w-4 h-4" />
+                      <Link href="/devis" className="text-secondary font-semibold text-sm hover:underline inline-flex items-center gap-1">
+                        Demander un devis <ArrowRight className="w-3 h-3" />
                       </Link>
                     </div>
                   </div>
@@ -182,26 +172,26 @@ export default function LocationMaterielPage() {
         </div>
       </section>
 
-      {/* Info Box */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4">
-          <div className="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm">
+      {/* How It Works */}
+      <section className="py-16 bg-light">
+        <div className="max-w-[800px] mx-auto px-4">
+          <div className="bg-white p-8 shadow-sm">
             <div className="flex items-start gap-4">
-              <Info className="w-8 h-8 text-accent shrink-0 mt-1" />
+              <Info className="w-8 h-8 text-secondary shrink-0 mt-1" />
               <div>
-                <h3 className="text-xl font-bold text-primary mb-2">Comment ça marche ?</h3>
-                <ol className="space-y-3 text-gray-600">
+                <h3 className="text-xl font-bold text-dark mb-4">Comment ça marche ?</h3>
+                <ol className="space-y-4 text-muted">
                   <li className="flex gap-3">
-                    <span className="w-7 h-7 bg-secondary text-white rounded-full flex items-center justify-center text-sm font-bold shrink-0">1</span>
-                    <span><strong>Contactez-nous</strong> par téléphone ou via le formulaire de devis avec vos besoins.</span>
+                    <span className="w-7 h-7 bg-secondary text-white flex items-center justify-center text-sm font-bold shrink-0">1</span>
+                    <span><strong className="text-dark">Contactez-nous</strong> par téléphone ou via le formulaire de devis.</span>
                   </li>
                   <li className="flex gap-3">
-                    <span className="w-7 h-7 bg-secondary text-white rounded-full flex items-center justify-center text-sm font-bold shrink-0">2</span>
-                    <span><strong>Recevez votre devis</strong> personnalisé sous 24h avec tarifs et disponibilité.</span>
+                    <span className="w-7 h-7 bg-secondary text-white flex items-center justify-center text-sm font-bold shrink-0">2</span>
+                    <span><strong className="text-dark">Recevez votre devis</strong> personnalisé sous 24h.</span>
                   </li>
                   <li className="flex gap-3">
-                    <span className="w-7 h-7 bg-secondary text-white rounded-full flex items-center justify-center text-sm font-bold shrink-0">3</span>
-                    <span><strong>Livraison sur site</strong> à la date convenue. Récupération en fin de location.</span>
+                    <span className="w-7 h-7 bg-secondary text-white flex items-center justify-center text-sm font-bold shrink-0">3</span>
+                    <span><strong className="text-dark">Livraison sur site</strong> à la date convenue.</span>
                   </li>
                 </ol>
               </div>
@@ -210,30 +200,21 @@ export default function LocationMaterielPage() {
         </div>
       </section>
 
-      {/* Bottom CTA */}
-      <section className="py-20 bg-primary">
-        <div className="max-w-4xl mx-auto px-4 text-center">
+      {/* CTA */}
+      <section className="py-20 bg-dark">
+        <div className="max-w-[800px] mx-auto px-4 text-center">
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-            Besoin de Matériel pour Votre Chantier ?
+            Besoin de Matériel ?
           </h2>
-          <p className="text-white/70 text-lg mb-8">
+          <p className="text-white/60 text-base mb-8">
             Contactez-nous pour connaître les disponibilités et tarifs.
-            Devis gratuit et livraison sur site.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link
-              href="/devis"
-              className="inline-flex items-center gap-2 bg-secondary hover:bg-secondary/90 text-white px-8 py-4 rounded-xl text-lg font-semibold transition-all group"
-            >
-              Demander un Devis
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            <Link href="/devis" className="main-btn inline-flex items-center gap-2">
+              Demander un Devis <ArrowRight className="w-4 h-4" />
             </Link>
-            <a
-              href="tel:+33768059389"
-              className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white px-8 py-4 rounded-xl text-lg font-medium transition-all border border-white/20"
-            >
-              <Phone className="w-5 h-5" />
-              07 68 05 93 89
+            <a href="tel:+33768059389" className="main-btn-white inline-flex items-center gap-2">
+              <Phone className="w-4 h-4" /> 07 68 05 93 89
             </a>
           </div>
         </div>
