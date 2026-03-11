@@ -53,7 +53,7 @@ export default function HeroSection() {
       ))}
       <div className="absolute inset-0 bg-black/50" />
 
-      <div className="relative z-10 max-w-[1170px] mx-auto px-4 w-full text-center">
+      <div className="relative z-10 max-w-[1170px] mx-auto px-4 sm:px-6 lg:px-8 w-full text-center">
         <span className="inline-block text-secondary font-medium text-lg uppercase tracking-[3px] mb-4">
           {heroSlides[currentSlide].subtitle}
         </span>

@@ -24,7 +24,7 @@ const serviceLinks = [
 export default function Footer() {
   return (
     <footer className="bg-[#1a1a2e] text-white pt-16 pb-0">
-      <div className="max-w-[1170px] mx-auto px-4">
+      <div className="max-w-[1170px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12">
           {/* Company Info */}
           <div>
@@ -109,7 +109,7 @@ export default function Footer() {
 
       {/* Bottom Bar */}
       <div className="border-t border-white/10">
-        <div className="max-w-[1170px] mx-auto px-4 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div className="max-w-[1170px] mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-gray-500 text-xs">
             &copy; {new Date().getFullYear()} OZDE BAT SAS &middot; RCS Bobigny 101 200 830
           </p>

@@ -118,7 +118,7 @@ export default function RealisationsPage() {
 
       {/* Projects Grid */}
       <section className="py-20 lg:py-24 bg-light">
-        <div className="max-w-[1170px] mx-auto px-4">
+        <div className="max-w-[1170px] mx-auto px-4 sm:px-6 lg:px-8">
           {/* Filter Tabs */}
           <div className="flex flex-wrap gap-4 justify-center mb-14">
             {categories.map((cat) => (

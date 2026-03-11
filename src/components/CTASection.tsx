@@ -4,7 +4,7 @@ import { Phone } from 'lucide-react';
 export default function CTASection() {
   return (
     <section className="py-20 lg:py-24 bg-dark relative">
-      <div className="max-w-[1170px] mx-auto px-4 text-center">
+      <div className="max-w-[1170px] mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h3 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-white leading-tight mb-6">
           Prêt à Démarrer<br />
           Votre Projet ?

@@ -40,7 +40,7 @@ export default function Navbar() {
     <header className="fixed top-0 left-0 right-0 z-50">
       {/* Top Bar */}
       <div className="bg-[#f6f6f6] hidden md:block">
-        <div className="max-w-[1170px] mx-auto px-4 flex items-center justify-between py-2">
+        <div className="max-w-[1170px] mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-center gap-6 lg:justify-between py-2 flex-wrap">
           <div className="flex items-center gap-6 text-sm text-muted">
             <a href="tel:+33768059389" className="flex items-center gap-2 hover:text-secondary transition-colors">
               <Phone className="w-3.5 h-3.5" />
@@ -48,7 +48,7 @@ export default function Navbar() {
             </a>
             <span className="flex items-center gap-2">
               <MapPin className="w-3.5 h-3.5" />
-              1 Av. Jean Jacques Rousseau, 93290 Tremblay-en-France
+              Tremblay-en-France (93)
             </span>
           </div>
           <div className="flex items-center gap-4 text-sm text-muted">
@@ -66,7 +66,7 @@ export default function Navbar() {
           ? 'bg-white shadow-[0_3px_16px_rgba(0,0,0,0.1)]'
           : 'bg-white'
       }`}>
-        <div className="max-w-[1170px] mx-auto px-4 flex items-center justify-between">
+        <div className="max-w-[1170px] mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center py-2">
             <Image

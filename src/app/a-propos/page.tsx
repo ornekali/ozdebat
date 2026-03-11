@@ -37,7 +37,7 @@ export default function AProposPage() {
 
       {/* About Section */}
       <section className="py-20 lg:py-24">
-        <div className="max-w-[1170px] mx-auto px-4">
+        <div className="max-w-[1170px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
             {/* Image */}
             <div className="flex-1 hidden lg:block">
@@ -106,7 +106,7 @@ export default function AProposPage() {
 
       {/* Values */}
       <section className="py-20 lg:py-24 bg-light">
-        <div className="max-w-[1170px] mx-auto px-4">
+        <div className="max-w-[1170px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <h3 className="text-3xl sm:text-4xl font-bold text-dark section-line">
               Nos Valeurs
@@ -158,7 +158,7 @@ export default function AProposPage() {
 
       {/* Expertise */}
       <section className="py-20 lg:py-24 bg-dark">
-        <div className="max-w-[1170px] mx-auto px-4">
+        <div className="max-w-[1170px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <h3 className="text-3xl sm:text-4xl font-bold text-white section-line">
               Nos Domaines d&apos;Expertise

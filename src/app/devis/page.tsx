@@ -86,7 +86,7 @@ export default function DevisPage() {
 
       {/* Trust Badges */}
       <section className="py-6 bg-light border-b border-gray-200">
-        <div className="max-w-[1170px] mx-auto px-4">
+        <div className="max-w-[1170px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center justify-center gap-8 text-sm text-muted">
             <span className="flex items-center gap-2">
               <Shield className="w-5 h-5 text-secondary" /> Sans engagement

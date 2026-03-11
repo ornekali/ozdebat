@@ -46,7 +46,7 @@ export default function PortfolioSection() {
 
   return (
     <section className="py-20 lg:py-24 bg-light">
-      <div className="max-w-[1170px] mx-auto px-4">
+      <div className="max-w-[1170px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Heading */}
         <div className="text-center mb-10">
           <h3 className="text-3xl sm:text-4xl font-bold text-dark section-line">

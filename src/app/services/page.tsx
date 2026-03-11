@@ -101,7 +101,7 @@ export default function ServicesPage() {
 
       {/* Services */}
       <section className="py-20 lg:py-24">
-        <div className="max-w-[1170px] mx-auto px-4">
+        <div className="max-w-[1170px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="space-y-24">
             {services.map((service, index) => (
               <div

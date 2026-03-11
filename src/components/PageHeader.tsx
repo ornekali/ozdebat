@@ -18,7 +18,7 @@ export default function PageHeader({ title, breadcrumb, bgImage }: PageHeaderPro
         sizes="100vw"
       />
       <div className="absolute inset-0 bg-gradient-to-r from-dark/80 to-dark/60" />
-      <div className="relative z-10 max-w-[1170px] mx-auto px-4 text-center">
+      <div className="relative z-10 max-w-[1170px] mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">{title}</h2>
         <nav aria-label="breadcrumb">
           <ol className="flex items-center justify-center gap-2 text-sm">

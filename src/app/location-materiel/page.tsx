@@ -105,7 +105,7 @@ export default function LocationMaterielPage() {
 
       {/* Advantages */}
       <section className="py-16 bg-light">
-        <div className="max-w-[1170px] mx-auto px-4">
+        <div className="max-w-[1170px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {advantages.map((adv) => (
               <div key={adv.title} className="flex items-start gap-4 bg-white p-6 shadow-sm">
@@ -124,7 +124,7 @@ export default function LocationMaterielPage() {
 
       {/* Equipment */}
       <section className="py-20 lg:py-24">
-        <div className="max-w-[1170px] mx-auto px-4">
+        <div className="max-w-[1170px] mx-auto px-4 sm:px-6 lg:px-8">
           {equipment.map((category) => (
             <div key={category.category} className="mb-20 last:mb-0">
               <div className="flex items-center gap-4 mb-10">
