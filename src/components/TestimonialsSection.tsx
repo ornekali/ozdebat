@@ -57,48 +57,47 @@ export default function TestimonialsSection() {
           </h2>
         </div>
 
-        <div className="bg-slate-50 rounded-2xl p-8 sm:p-12">
+        <div className="bg-slate-50 rounded-2xl p-8 sm:p-12 text-center">
           {/* Stars */}
-          <div className="flex gap-1 mb-6">
+          <div className="flex justify-center gap-1 mb-6">
             {[...Array(t.rating)].map((_, i) => (
               <Star key={i} className="w-5 h-5 fill-accent text-accent" />
             ))}
           </div>
 
           {/* Quote */}
-          <p className="text-xl sm:text-2xl text-primary font-medium leading-relaxed mb-8">
+          <p className="text-xl sm:text-2xl text-primary font-medium leading-relaxed mb-8 max-w-2xl mx-auto">
             &ldquo;{t.content}&rdquo;
           </p>
 
-          {/* Author + Nav */}
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full bg-secondary text-white flex items-center justify-center font-bold text-sm">
-                {t.initials}
-              </div>
-              <div>
-                <p className="font-semibold text-primary">{t.name}</p>
-                <p className="text-slate-400 text-sm">{t.role}</p>
-              </div>
+          {/* Author */}
+          <div className="flex items-center justify-center gap-4 mb-8">
+            <div className="w-12 h-12 rounded-full bg-secondary text-white flex items-center justify-center font-bold text-sm">
+              {t.initials}
             </div>
+            <div className="text-left">
+              <p className="font-semibold text-primary">{t.name}</p>
+              <p className="text-slate-400 text-sm">{t.role}</p>
+            </div>
+          </div>
 
-            <div className="flex items-center gap-2">
-              <button
-                onClick={prev}
-                aria-label="Précédent"
-                className="w-10 h-10 rounded-lg border border-slate-200 flex items-center justify-center hover:border-secondary hover:text-secondary transition-colors"
-              >
-                <ChevronLeft className="w-4 h-4" />
-              </button>
-              <button
-                onClick={next}
-                aria-label="Suivant"
-                className="w-10 h-10 rounded-lg border border-slate-200 flex items-center justify-center hover:border-secondary hover:text-secondary transition-colors"
-              >
-                <ChevronRight className="w-4 h-4" />
-              </button>
-              <span className="text-slate-400 text-sm ml-2 tabular-nums">{current + 1}/{testimonials.length}</span>
-            </div>
+          {/* Nav */}
+          <div className="flex items-center justify-center gap-3">
+            <button
+              onClick={prev}
+              aria-label="Précédent"
+              className="w-10 h-10 rounded-lg border border-slate-200 flex items-center justify-center hover:border-secondary hover:text-secondary transition-colors"
+            >
+              <ChevronLeft className="w-4 h-4" />
+            </button>
+            <span className="text-slate-400 text-sm tabular-nums min-w-[3ch] text-center">{current + 1}/{testimonials.length}</span>
+            <button
+              onClick={next}
+              aria-label="Suivant"
+              className="w-10 h-10 rounded-lg border border-slate-200 flex items-center justify-center hover:border-secondary hover:text-secondary transition-colors"
+            >
+              <ChevronRight className="w-4 h-4" />
+            </button>
           </div>
         </div>
       </div>

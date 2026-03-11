@@ -9,20 +9,29 @@ const stats = [
   { value: 100, suffix: '%', label: 'Satisfaction' },
 ];
 
-function useCountUp(target: number, shouldStart: boolean) {
+function StatItem({ value, suffix, label, shouldStart }: { value: number; suffix: string; label: string; shouldStart: boolean }) {
   const [count, setCount] = useState(0);
+
   useEffect(() => {
     if (!shouldStart) return;
     let start = 0;
-    const increment = target / 125;
+    const increment = value / 125;
     const timer = setInterval(() => {
       start += increment;
-      if (start >= target) { setCount(target); clearInterval(timer); }
+      if (start >= value) { setCount(value); clearInterval(timer); }
       else { setCount(Math.floor(start)); }
     }, 16);
     return () => clearInterval(timer);
-  }, [target, shouldStart]);
-  return count;
+  }, [value, shouldStart]);
+
+  return (
+    <div className="text-center">
+      <div className="text-4xl sm:text-5xl font-bold text-white tabular-nums">
+        {count}<span className="text-secondary">{suffix}</span>
+      </div>
+      <p className="text-white/50 text-sm mt-2">{label}</p>
+    </div>
+  );
 }
 
 export default function StatsSection() {
@@ -41,18 +50,10 @@ export default function StatsSection() {
   return (
     <section ref={ref} className="py-16 bg-primary">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
-          {stats.map((stat) => {
-            const count = useCountUp(stat.value, visible);
-            return (
-              <div key={stat.label}>
-                <div className="text-4xl sm:text-5xl font-bold text-white tabular-nums">
-                  {count}<span className="text-secondary">{stat.suffix}</span>
-                </div>
-                <p className="text-white/50 text-sm mt-2">{stat.label}</p>
-              </div>
-            );
-          })}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+          {stats.map((stat) => (
+            <StatItem key={stat.label} {...stat} shouldStart={visible} />
+          ))}
         </div>
       </div>
     </section>
