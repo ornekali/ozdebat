@@ -77,17 +77,14 @@ export default function ContactPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative py-32 bg-primary overflow-hidden">
-        <Image src="/images/ferraillage-dalle-ouvrier.jpg" alt="" fill className="object-cover opacity-20" />
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/50 to-primary" />
+      <section className="relative py-28 bg-primary overflow-hidden">
+        <Image src="/images/ferraillage-dalle-ouvrier.jpg" alt="" fill className="object-cover opacity-15" />
+        <div className="absolute inset-0 bg-black/50" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="text-secondary font-semibold text-sm uppercase tracking-widest">Contactez-nous</span>
-          <h1 className="text-5xl sm:text-6xl font-bold text-white mt-4 mb-6">
-            Nous <span className="text-secondary">Contacter</span>
-          </h1>
-          <p className="text-xl text-white/70 max-w-2xl mx-auto">
-            Une question ? Un projet ? N&apos;hésitez pas à nous contacter.
-            Nous vous répondons sous 24 heures.
+          <p className="text-secondary font-semibold text-sm uppercase tracking-widest mb-3">Contactez-nous</p>
+          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">Nous Contacter</h1>
+          <p className="text-white/50 text-lg max-w-xl mx-auto">
+            Une question ? Un projet ? Nous vous répondons sous 24 heures.
           </p>
         </div>
       </section>
@@ -100,7 +97,7 @@ export default function ContactPage() {
               <a
                 key={info.title}
                 href={info.href || '#'}
-                className="card-hover bg-white rounded-2xl p-6 text-center border border-gray-100 shadow-sm group"
+                className="bg-white rounded-xl p-6 text-center border border-slate-100 hover:border-secondary/20 hover:shadow-lg hover:shadow-secondary/5 transition-all group"
               >
                 <div className="w-14 h-14 bg-secondary/10 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:bg-secondary transition-colors">
                   <info.icon className="w-6 h-6 text-secondary group-hover:text-white transition-colors" />
@@ -122,7 +119,7 @@ export default function ContactPage() {
             {/* Form */}
             <div>
               <h2 className="text-3xl font-bold text-primary mb-2">Envoyez-nous un Message</h2>
-              <div className="section-divider mb-8" />
+              <div className="w-12 h-0.5 bg-secondary rounded-full mb-8" />
 
               {submitted ? (
                 <div className="bg-green-50 rounded-2xl p-12 text-center border border-green-100">
@@ -240,7 +237,7 @@ export default function ContactPage() {
             {/* Map */}
             <div>
               <h2 className="text-3xl font-bold text-primary mb-2">Nous Trouver</h2>
-              <div className="section-divider mb-8" />
+              <div className="w-12 h-0.5 bg-secondary rounded-full mb-8" />
               <div className="map-container h-[500px] bg-gray-100">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2620.5!2d2.5698!3d48.9547!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e614c5468f94e1%3A0x5c006e82a4ed3b0!2s1%20Av.%20Jean%20Jacques%20Rousseau%2C%2093290%20Tremblay-en-France!5e0!3m2!1sfr!2sfr!4v1710000000000!5m2!1sfr!2sfr"

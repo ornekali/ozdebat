@@ -45,17 +45,14 @@ export default function AProposPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative py-32 bg-primary overflow-hidden">
-        <Image src="/images/equipe-ferraillage-beton.jpg" alt="" fill className="object-cover opacity-20" />
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/50 to-primary" />
+      <section className="relative py-28 bg-primary overflow-hidden">
+        <Image src="/images/equipe-ferraillage-beton.jpg" alt="" fill className="object-cover opacity-15" />
+        <div className="absolute inset-0 bg-black/50" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="text-secondary font-semibold text-sm uppercase tracking-widest">Notre Histoire</span>
-          <h1 className="text-5xl sm:text-6xl font-bold text-white mt-4 mb-6">
-            À Propos d&apos;<span className="text-secondary">OZDE BAT</span>
-          </h1>
-          <p className="text-xl text-white/70 max-w-2xl mx-auto">
-            Une entreprise de construction et rénovation à taille humaine,
-            au service de vos projets en Île-de-France.
+          <p className="text-secondary font-semibold text-sm uppercase tracking-widest mb-3">Notre Histoire</p>
+          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">À Propos d&apos;OZDE BAT</h1>
+          <p className="text-white/50 text-lg max-w-xl mx-auto">
+            Construction et rénovation à taille humaine en Île-de-France.
           </p>
         </div>
       </section>
@@ -89,7 +86,7 @@ export default function AProposPage() {
               <h2 className="text-3xl sm:text-4xl font-bold text-primary mt-3 mb-6">
                 Votre Partenaire de Confiance en BTP
               </h2>
-              <div className="section-divider mb-8" />
+              <div className="w-12 h-0.5 bg-secondary rounded-full mb-8" />
               <p className="text-gray-600 text-lg leading-relaxed mb-6">
                 <strong>OZDE BAT</strong> est une entreprise de construction et rénovation
                 basée à Tremblay-en-France (93290). Fondée par <strong>Ebubekir Ozdemir</strong>,
@@ -145,12 +142,12 @@ export default function AProposPage() {
           <div className="text-center mb-16">
             <span className="text-secondary font-semibold text-sm uppercase tracking-widest">Nos Principes</span>
             <h2 className="text-4xl font-bold text-primary mt-3 mb-4">Nos Valeurs</h2>
-            <div className="section-divider mx-auto" />
+            <div className="w-12 h-0.5 bg-secondary rounded-full mx-auto" />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value) => (
-              <div key={value.title} className="card-hover bg-white rounded-2xl p-8 text-center border border-gray-100 shadow-sm">
+              <div key={value.title} className="bg-white rounded-xl p-7 text-center border border-slate-100 hover:border-secondary/20 hover:shadow-lg hover:shadow-secondary/5 transition-all">
                 <div className="w-16 h-16 bg-secondary/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
                   <value.icon className="w-8 h-8 text-secondary" />
                 </div>
@@ -168,7 +165,7 @@ export default function AProposPage() {
           <div className="text-center mb-16">
             <span className="text-secondary font-semibold text-sm uppercase tracking-widest">Notre Parcours</span>
             <h2 className="text-4xl font-bold text-primary mt-3 mb-4">Notre Histoire</h2>
-            <div className="section-divider mx-auto" />
+            <div className="w-12 h-0.5 bg-secondary rounded-full mx-auto" />
           </div>
 
           <div className="space-y-8">
@@ -199,7 +196,7 @@ export default function AProposPage() {
           <div className="text-center mb-16">
             <span className="text-secondary font-semibold text-sm uppercase tracking-widest">Compétences</span>
             <h2 className="text-4xl font-bold text-white mt-3 mb-4">Nos Domaines d&apos;Expertise</h2>
-            <div className="section-divider mx-auto" />
+            <div className="w-12 h-0.5 bg-secondary rounded-full mx-auto" />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">

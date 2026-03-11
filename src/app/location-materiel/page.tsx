@@ -97,17 +97,14 @@ export default function LocationMaterielPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative py-32 bg-primary overflow-hidden">
-        <Image src="/images/mini-pelle.jpg" alt="" fill className="object-cover opacity-20" />
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/50 to-primary" />
+      <section className="relative py-28 bg-primary overflow-hidden">
+        <Image src="/images/mini-pelle.jpg" alt="" fill className="object-cover opacity-15" />
+        <div className="absolute inset-0 bg-black/50" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="text-secondary font-semibold text-sm uppercase tracking-widest">Location</span>
-          <h1 className="text-5xl sm:text-6xl font-bold text-white mt-4 mb-6">
-            Location de <span className="text-secondary">Matériel BTP</span>
-          </h1>
-          <p className="text-xl text-white/70 max-w-2xl mx-auto">
-            Pelleteuses, camions, bétonnières et tout l&apos;équipement nécessaire
-            pour vos chantiers en Île-de-France.
+          <p className="text-secondary font-semibold text-sm uppercase tracking-widest mb-3">Location</p>
+          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">Location de Matériel BTP</h1>
+          <p className="text-white/50 text-lg max-w-xl mx-auto">
+            Pelleteuses, camions, bétonnières pour vos chantiers en Île-de-France.
           </p>
         </div>
       </section>
@@ -142,7 +139,7 @@ export default function LocationMaterielPage() {
                 </div>
                 <div>
                   <h2 className="text-3xl font-bold text-primary">{category.category}</h2>
-                  <div className="section-divider mt-2" />
+                  <div className="w-12 h-0.5 bg-secondary rounded-full mt-2" />
                 </div>
               </div>
 

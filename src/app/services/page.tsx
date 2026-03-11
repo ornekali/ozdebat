@@ -93,24 +93,14 @@ export default function ServicesPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative py-32 bg-primary overflow-hidden">
-        <Image
-          src="/images/chantier-ferraillage-mur.jpg"
-          alt=""
-          fill
-          className="object-cover opacity-20"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/50 to-primary" />
+      <section className="relative py-28 bg-primary overflow-hidden">
+        <Image src="/images/chantier-ferraillage-mur.jpg" alt="" fill className="object-cover opacity-15" />
+        <div className="absolute inset-0 bg-black/50" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="inline-block px-4 py-1.5 bg-white/10 text-secondary rounded-full text-sm font-semibold uppercase tracking-widest mb-4">
-            Nos Expertises
-          </span>
-          <h1 className="text-5xl sm:text-6xl font-bold text-white mt-2 mb-6">
-            Nos <span className="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-accent">Services</span>
-          </h1>
-          <p className="text-xl text-white/60 max-w-2xl mx-auto">
-            Une gamme complète de services BTP pour répondre à tous vos besoins
-            de construction et rénovation en Île-de-France.
+          <p className="text-secondary font-semibold text-sm uppercase tracking-widest mb-3">Nos Expertises</p>
+          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">Nos Services</h1>
+          <p className="text-white/50 text-lg max-w-xl mx-auto">
+            Une gamme complète de services BTP pour vos projets en Île-de-France.
           </p>
         </div>
       </section>

@@ -68,17 +68,14 @@ export default function DevisPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative py-32 bg-primary overflow-hidden">
-        <Image src="/images/construction-maison-extension.jpg" alt="" fill className="object-cover opacity-20" />
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/50 to-primary" />
+      <section className="relative py-28 bg-primary overflow-hidden">
+        <Image src="/images/construction-maison-extension.jpg" alt="" fill className="object-cover opacity-15" />
+        <div className="absolute inset-0 bg-black/50" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="text-secondary font-semibold text-sm uppercase tracking-widest">Devis</span>
-          <h1 className="text-5xl sm:text-6xl font-bold text-white mt-4 mb-6">
-            Devis <span className="text-secondary">Gratuit</span>
-          </h1>
-          <p className="text-xl text-white/70 max-w-2xl mx-auto">
-            Décrivez votre projet et recevez un devis détaillé sous 24 heures.
-            C&apos;est gratuit et sans engagement.
+          <p className="text-secondary font-semibold text-sm uppercase tracking-widest mb-3">Devis</p>
+          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">Devis Gratuit</h1>
+          <p className="text-white/50 text-lg max-w-xl mx-auto">
+            Décrivez votre projet, recevez un devis détaillé sous 24h. Sans engagement.
           </p>
         </div>
       </section>
@@ -124,7 +121,7 @@ export default function DevisPage() {
           ) : (
             <div className="bg-white rounded-3xl shadow-xl border border-gray-100 p-8 sm:p-12">
               <h2 className="text-3xl font-bold text-primary mb-2">Votre Projet</h2>
-              <div className="section-divider mb-8" />
+              <div className="w-12 h-0.5 bg-secondary rounded-full mb-8" />
               <p className="text-gray-600 mb-10">
                 Remplissez le formulaire ci-dessous pour recevoir votre devis gratuit.
                 Plus votre description est détaillée, plus le devis sera précis.
