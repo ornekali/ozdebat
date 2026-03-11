@@ -64,7 +64,7 @@ export default function HeroSection() {
       ))}
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/80 to-primary/40" />
+      <div className="absolute inset-0 bg-gradient-to-b from-primary/90 via-primary/70 to-primary/50" />
       <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent" />
 
       {/* Decorative Elements */}
@@ -73,9 +73,9 @@ export default function HeroSection() {
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-24">
-        <div className="max-w-3xl">
+        <div className="text-center max-w-4xl mx-auto">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white/90 px-4 py-2 rounded-full text-sm mb-8 border border-white/10">
+          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white/90 px-5 py-2.5 rounded-full text-sm mb-8 border border-white/10">
             <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
             Disponible pour vos projets en Île-de-France
           </div>
@@ -88,10 +88,10 @@ export default function HeroSection() {
             </span>
           </h1>
           <p className="text-xl sm:text-2xl text-white/60 font-light mb-6">{slide.subtitle}</p>
-          <p className="text-lg text-white/70 leading-relaxed mb-10 max-w-2xl">{slide.description}</p>
+          <p className="text-lg text-white/70 leading-relaxed mb-10 max-w-2xl mx-auto">{slide.description}</p>
 
           {/* CTAs */}
-          <div className="flex flex-col sm:flex-row gap-4 mb-12">
+          <div className="flex flex-col sm:flex-row justify-center gap-4 mb-12">
             <Link
               href="/devis"
               className="inline-flex items-center justify-center gap-2 bg-secondary hover:bg-secondary/90 text-white px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-200 hover:shadow-xl hover:shadow-secondary/25 active:scale-95 group"
@@ -108,7 +108,7 @@ export default function HeroSection() {
           </div>
 
           {/* Trust Badges */}
-          <div className="flex flex-wrap gap-6">
+          <div className="flex flex-wrap justify-center gap-6">
             {trustBadges.map((badge) => (
               <div key={badge.label} className="flex items-center gap-2 text-white/60">
                 <badge.icon className="w-5 h-5 text-accent" />
@@ -119,7 +119,7 @@ export default function HeroSection() {
         </div>
 
         {/* Slide Indicators */}
-        <div className="flex gap-3 mt-16">
+        <div className="flex justify-center gap-3 mt-16">
           {heroSlides.map((_, index) => (
             <button
               key={index}

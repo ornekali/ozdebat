@@ -127,18 +127,16 @@ export default function ServicesPreview() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-16 gap-6">
-          <div>
-            <span className="inline-block px-4 py-1.5 bg-secondary/10 text-secondary rounded-full text-sm font-semibold uppercase tracking-widest mb-4">
-              Ce que nous faisons
-            </span>
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-primary leading-tight">
-              Nos <span className="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-accent">Services</span>
-            </h2>
-          </div>
+        <div className="text-center mb-16">
+          <span className="inline-block px-4 py-1.5 bg-secondary/10 text-secondary rounded-full text-sm font-semibold uppercase tracking-widest mb-4">
+            Ce que nous faisons
+          </span>
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-primary leading-tight">
+            Nos <span className="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-accent">Services</span>
+          </h2>
           <Link
             href="/services"
-            className="inline-flex items-center gap-2 text-secondary font-semibold hover:gap-3 transition-all group self-start lg:self-auto"
+            className="inline-flex items-center gap-2 text-secondary font-semibold hover:gap-3 transition-all group mt-4"
           >
             Voir tous les services
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
