@@ -1,102 +1,154 @@
 'use client';
 
+import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
-import { Building2, Hammer, PaintBucket, HardHat, Truck, ArrowRight } from 'lucide-react';
+import Image from 'next/image';
+import { Building2, Hammer, PaintBucket, HardHat, Truck, ArrowRight, ArrowUpRight } from 'lucide-react';
 
 const services = [
   {
     icon: Building2,
     title: 'Maçonnerie Générale',
-    description: 'Construction de murs, fondations, dalles et tous travaux de gros œuvre. Expertise en béton armé et maçonnerie traditionnelle.',
+    description: 'Murs, fondations, dalles et gros œuvre. Béton armé et maçonnerie traditionnelle.',
     image: '/images/ferraillage-dalle-grande.jpg',
     href: '/services#maconnerie',
+    color: 'from-red-500 to-orange-500',
   },
   {
     icon: PaintBucket,
     title: 'Carrelage',
-    description: 'Pose de carrelage intérieur et extérieur, faïence, mosaïque. Finitions soignées pour sols et murs.',
+    description: 'Carrelage intérieur, extérieur, faïence, mosaïque. Finitions impeccables.',
     image: '/images/beton-ancrage-fini.jpg',
     href: '/services#carrelage',
+    color: 'from-blue-500 to-cyan-500',
   },
   {
     icon: Hammer,
     title: 'Rénovation',
-    description: 'Rénovation complète ou partielle d\'appartements, maisons et locaux commerciaux. Du sol au plafond.',
+    description: 'Rénovation complète d\'appartements, maisons et locaux commerciaux.',
     image: '/images/renovation-combles-avant.jpg',
     href: '/services#renovation',
+    color: 'from-purple-500 to-pink-500',
   },
   {
     icon: HardHat,
     title: 'Travaux Publics',
-    description: 'Terrassement, voirie, réseaux divers et aménagements extérieurs. Projets de toutes envergures.',
+    description: 'Terrassement, voirie, réseaux divers et aménagements extérieurs.',
     image: '/images/fondation-longrines.jpg',
     href: '/services#travaux-publics',
+    color: 'from-emerald-500 to-teal-500',
   },
   {
     icon: Building2,
     title: 'Construction Neuve',
-    description: 'Construction de bâtiments résidentiels et commerciaux de A à Z. Respect des normes et délais.',
+    description: 'Construction résidentielle et commerciale de A à Z.',
     image: '/images/construction-maison-extension.jpg',
     href: '/services#construction',
+    color: 'from-amber-500 to-yellow-500',
   },
   {
     icon: Truck,
     title: 'Location Matériel',
-    description: 'Pelleteuses, camions, bétonnières et équipements BTP. Location courte et longue durée.',
+    description: 'Pelleteuses, camions, bétonnières. Courte et longue durée.',
     image: '/images/mini-pelle.jpg',
     href: '/location-materiel',
+    color: 'from-secondary to-rose-500',
   },
 ];
 
+function ServiceCard({ service, index }: { service: typeof services[0]; index: number }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setVisible(true); observer.disconnect(); } },
+      { threshold: 0.15 }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div
+      ref={ref}
+      style={{ transitionDelay: `${index * 100}ms` }}
+      className={`transition-all duration-700 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
+    >
+      <Link href={service.href} className="group block relative h-[420px] rounded-3xl overflow-hidden">
+        {/* Background Image */}
+        <Image
+          src={service.image}
+          alt={service.title}
+          fill
+          className="object-cover transition-transform duration-700 group-hover:scale-110"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        />
+
+        {/* Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent group-hover:from-black/95 transition-all duration-500" />
+
+        {/* Colored accent line */}
+        <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${service.color} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
+
+        {/* Icon Badge */}
+        <div className={`absolute top-6 left-6 w-14 h-14 rounded-2xl bg-gradient-to-br ${service.color} flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+          <service.icon className="w-7 h-7 text-white" />
+        </div>
+
+        {/* Arrow */}
+        <div className="absolute top-6 right-6 w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:bg-white/20">
+          <ArrowUpRight className="w-5 h-5 text-white" />
+        </div>
+
+        {/* Content */}
+        <div className="absolute bottom-0 left-0 right-0 p-8">
+          <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-secondary transition-colors">
+            {service.title}
+          </h3>
+          <p className="text-white/70 text-sm leading-relaxed mb-4 max-w-xs">
+            {service.description}
+          </p>
+          <span className="inline-flex items-center gap-2 text-secondary text-sm font-semibold opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+            Découvrir <ArrowRight className="w-4 h-4" />
+          </span>
+        </div>
+      </Link>
+    </div>
+  );
+}
+
 export default function ServicesPreview() {
   return (
-    <section className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-28 bg-white relative overflow-hidden">
+      {/* Decorative background */}
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-secondary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-accent/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <span className="text-secondary font-semibold text-sm uppercase tracking-widest">Ce que nous faisons</span>
-          <h2 className="text-4xl sm:text-5xl font-bold text-primary mt-3 mb-4">
-            Nos Services
-          </h2>
-          <div className="section-divider mx-auto mb-6" />
-          <p className="text-gray-600 max-w-2xl mx-auto text-lg">
-            De la construction neuve à la rénovation, en passant par la location de matériel,
-            nous offrons une gamme complète de services BTP.
-          </p>
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-16 gap-6">
+          <div>
+            <span className="inline-block px-4 py-1.5 bg-secondary/10 text-secondary rounded-full text-sm font-semibold uppercase tracking-widest mb-4">
+              Ce que nous faisons
+            </span>
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-primary leading-tight">
+              Nos <span className="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-accent">Services</span>
+            </h2>
+          </div>
+          <Link
+            href="/services"
+            className="inline-flex items-center gap-2 text-secondary font-semibold hover:gap-3 transition-all group self-start lg:self-auto"
+          >
+            Voir tous les services
+            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+          </Link>
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service) => (
-            <Link
-              key={service.title}
-              href={service.href}
-              className="group card-hover bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm"
-            >
-              <div className="relative h-48 overflow-hidden">
-                <div
-                  className="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition-transform duration-500"
-                  style={{ backgroundImage: `url(${service.image})` }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent" />
-                <div className="absolute bottom-4 left-4">
-                  <div className="w-12 h-12 bg-secondary/90 backdrop-blur-sm rounded-xl flex items-center justify-center">
-                    <service.icon className="w-6 h-6 text-white" />
-                  </div>
-                </div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-primary mb-2 group-hover:text-secondary transition-colors">
-                  {service.title}
-                </h3>
-                <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                  {service.description}
-                </p>
-                <span className="inline-flex items-center gap-1 text-secondary text-sm font-semibold group-hover:gap-2 transition-all">
-                  En savoir plus <ArrowRight className="w-4 h-4" />
-                </span>
-              </div>
-            </Link>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {services.map((service, index) => (
+            <ServiceCard key={service.title} service={service} index={index} />
           ))}
         </div>
       </div>

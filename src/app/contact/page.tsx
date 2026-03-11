@@ -13,8 +13,8 @@ const contactInfo = [
   {
     icon: Phone,
     title: 'Téléphone',
-    lines: ['01 XX XX XX XX'],
-    href: 'tel:+33XXXXXXXXX',
+    lines: ['07 68 05 93 89'],
+    href: 'tel:+33768059389',
   },
   {
     icon: Mail,
@@ -180,7 +180,7 @@ export default function ContactPage() {
                           id="telephone"
                           name="telephone"
                           type="tel"
-                          placeholder="01 XX XX XX XX"
+                          placeholder="07 68 05 93 89"
                           className="form-input w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-gray-900 placeholder-gray-400"
                         />
                       </div>

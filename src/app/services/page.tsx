@@ -184,11 +184,11 @@ export default function ServicesPage() {
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
             <a
-              href="tel:+33XXXXXXXXX"
+              href="tel:+33768059389"
               className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-xl text-lg font-medium transition-all"
             >
               <Phone className="w-5 h-5" />
-              01 XX XX XX XX
+              07 68 05 93 89
             </a>
           </div>
         </div>

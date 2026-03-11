@@ -108,13 +108,13 @@ export default function Navbar() {
           {/* CTA + Phone */}
           <div className="hidden lg:flex items-center gap-4">
             <a
-              href="tel:+33XXXXXXXXX"
+              href="tel:+33768059389"
               className={`flex items-center gap-2 text-sm font-medium transition-colors ${
                 scrolled ? 'text-gray-600 hover:text-secondary' : 'text-white/80 hover:text-white'
               }`}
             >
               <Phone className="w-4 h-4" />
-              <span>01 XX XX XX XX</span>
+              <span>07 68 05 93 89</span>
             </a>
             <Link
               href="/devis"
