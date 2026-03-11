@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   Award, Target, Users, Shield, ArrowRight, CheckCircle2,
   Building2, Calendar, MapPin, Briefcase
@@ -45,10 +46,7 @@ export default function AProposPage() {
     <>
       {/* Hero */}
       <section className="relative py-32 bg-primary overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-20"
-          style={{ backgroundImage: 'url(/images/equipe-ferraillage-beton.jpg)' }}
-        />
+        <Image src="/images/equipe-ferraillage-beton.jpg" alt="" fill className="object-cover opacity-20" />
         <div className="absolute inset-0 bg-gradient-to-b from-primary/50 to-primary" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <span className="text-secondary font-semibold text-sm uppercase tracking-widest">Notre Histoire</span>
@@ -68,11 +66,8 @@ export default function AProposPage() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Image */}
             <div className="relative">
-              <div className="rounded-2xl overflow-hidden shadow-2xl">
-                <div
-                  className="aspect-[4/3] bg-cover bg-center"
-                  style={{ backgroundImage: 'url(/images/ouvrier-chantier-coffrage.jpg)' }}
-                />
+              <div className="rounded-3xl overflow-hidden shadow-2xl aspect-[4/3] relative">
+                <Image src="/images/ouvrier-chantier-coffrage.jpg" alt="Équipe OZDE BAT sur chantier" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
               </div>
               {/* Floating Card */}
               <div className="absolute -bottom-8 -right-4 sm:-right-8 bg-white rounded-2xl shadow-xl p-6 border border-gray-100">
@@ -109,7 +104,7 @@ export default function AProposPage() {
               </p>
 
               {/* Company Info Cards */}
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="bg-gray-50 rounded-xl p-4">
                   <div className="flex items-center gap-2 mb-2">
                     <Calendar className="w-4 h-4 text-secondary" />

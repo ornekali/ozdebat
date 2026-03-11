@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { MapPin, Phone, Mail, Clock, ArrowRight, ArrowUpRight, Facebook, Instagram, Linkedin, Hammer } from 'lucide-react';
+import Image from 'next/image';
+import { MapPin, Phone, Mail, Clock, ArrowRight, Facebook, Instagram, Linkedin, Hammer } from 'lucide-react';
 
 const services = [
   { label: 'Maçonnerie Générale', href: '/services#maconnerie' },
@@ -23,7 +24,7 @@ export default function Footer() {
     <footer className="relative overflow-hidden">
       {/* CTA Band */}
       <div className="relative bg-gradient-to-r from-secondary via-secondary to-accent">
-        <div className="absolute inset-0 bg-[url('/images/ferraillage-dalle-grande.jpg')] bg-cover bg-center opacity-10" />
+        <Image src="/images/ferraillage-dalle-grande.jpg" alt="" fill className="object-cover opacity-10" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
             <div>
@@ -85,7 +86,7 @@ export default function Footer() {
                     aria-label={social.label}
                     className="w-11 h-11 bg-white/5 hover:bg-gradient-to-br hover:from-secondary hover:to-accent rounded-xl flex items-center justify-center transition-all duration-300 border border-white/5 hover:border-transparent hover:scale-110 hover:shadow-lg hover:shadow-secondary/20"
                   >
-                    <social.icon className="w-4.5 h-4.5" />
+                    <social.icon className="w-5 h-5" />
                   </a>
                 ))}
               </div>
@@ -148,7 +149,7 @@ export default function Footer() {
                     className="flex items-start gap-3 group"
                   >
                     <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center shrink-0 group-hover:bg-secondary/20 transition-colors">
-                      <MapPin className="w-4.5 h-4.5 text-secondary" />
+                      <MapPin className="w-5 h-5 text-secondary" />
                     </div>
                     <div>
                       <span className="text-white/50 text-sm group-hover:text-white/70 transition-colors block">
@@ -163,7 +164,7 @@ export default function Footer() {
                 <li>
                   <a href="tel:+33768059389" className="flex items-center gap-3 group">
                     <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center shrink-0 group-hover:bg-secondary/20 transition-colors">
-                      <Phone className="w-4.5 h-4.5 text-secondary" />
+                      <Phone className="w-5 h-5 text-secondary" />
                     </div>
                     <span className="text-white/50 text-sm group-hover:text-white transition-colors font-medium">
                       07 68 05 93 89
@@ -173,7 +174,7 @@ export default function Footer() {
                 <li>
                   <a href="mailto:contact@ozdebat.fr" className="flex items-center gap-3 group">
                     <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center shrink-0 group-hover:bg-secondary/20 transition-colors">
-                      <Mail className="w-4.5 h-4.5 text-secondary" />
+                      <Mail className="w-5 h-5 text-secondary" />
                     </div>
                     <span className="text-white/50 text-sm group-hover:text-white transition-colors">
                       contact@ozdebat.fr
@@ -183,7 +184,7 @@ export default function Footer() {
                 <li>
                   <div className="flex items-start gap-3">
                     <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center shrink-0">
-                      <Clock className="w-4.5 h-4.5 text-secondary" />
+                      <Clock className="w-5 h-5 text-secondary" />
                     </div>
                     <div>
                       <span className="text-white/50 text-sm block">Lun - Ven: 8h00 - 18h00</span>

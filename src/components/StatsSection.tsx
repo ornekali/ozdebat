@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
 import { Users, Building, Calendar, ThumbsUp } from 'lucide-react';
 
 const stats = [
@@ -70,9 +71,12 @@ export default function StatsSection() {
   return (
     <section ref={ref} className="relative py-28 overflow-hidden">
       {/* Background image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-fixed"
-        style={{ backgroundImage: 'url(/images/ferraillage-poteau-paris.jpg)' }}
+      <Image
+        src="/images/ferraillage-poteau-paris.jpg"
+        alt=""
+        fill
+        className="object-cover"
+        sizes="100vw"
       />
       <div className="absolute inset-0 bg-primary/92" />
 

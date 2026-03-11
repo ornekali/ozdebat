@@ -24,6 +24,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
 }
 
 body {
@@ -123,6 +124,13 @@ body {
   outline: none;
   border-color: #e94560;
   box-shadow: 0 0 0 3px rgba(233, 69, 96, 0.1);
+}
+
+/* Focus visible for keyboard navigation */
+:focus-visible {
+  outline: 2px solid #e94560;
+  outline-offset: 2px;
+  border-radius: 4px;
 }
 
 .image-overlay {

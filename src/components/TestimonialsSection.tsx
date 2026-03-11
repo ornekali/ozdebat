@@ -126,7 +126,9 @@ export default function TestimonialsSection() {
                 <button
                   key={index}
                   onClick={() => goTo(index)}
-                  className={`h-2 rounded-full transition-all duration-500 ${
+                  aria-label={`Témoignage ${index + 1}`}
+                  aria-current={index === current ? 'true' : undefined}
+                  className={`h-2 rounded-full transition-all duration-500 focus-visible:ring-2 focus-visible:ring-secondary ${
                     index === current ? 'w-10 bg-gradient-to-r from-secondary to-accent' : 'w-2 bg-gray-200 hover:bg-gray-300'
                   }`}
                 />
@@ -137,13 +139,15 @@ export default function TestimonialsSection() {
             <div className="flex gap-3">
               <button
                 onClick={prev}
-                className="w-14 h-14 bg-gray-100 hover:bg-secondary hover:text-white rounded-2xl flex items-center justify-center transition-all duration-300 group"
+                aria-label="Témoignage précédent"
+                className="w-14 h-14 bg-gray-100 hover:bg-secondary hover:text-white rounded-2xl flex items-center justify-center transition-all duration-300 group focus-visible:ring-2 focus-visible:ring-secondary"
               >
                 <ChevronLeft className="w-5 h-5 group-hover:-translate-x-0.5 transition-transform" />
               </button>
               <button
                 onClick={next}
-                className="w-14 h-14 bg-gray-100 hover:bg-secondary hover:text-white rounded-2xl flex items-center justify-center transition-all duration-300 group"
+                aria-label="Témoignage suivant"
+                className="w-14 h-14 bg-gray-100 hover:bg-secondary hover:text-white rounded-2xl flex items-center justify-center transition-all duration-300 group focus-visible:ring-2 focus-visible:ring-secondary"
               >
                 <ChevronRight className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" />
               </button>

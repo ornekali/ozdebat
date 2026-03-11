@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   Truck, HardHat, Wrench, ArrowRight, CheckCircle2, Phone,
   Clock, Shield, MapPin, Info
@@ -97,10 +98,7 @@ export default function LocationMaterielPage() {
     <>
       {/* Hero */}
       <section className="relative py-32 bg-primary overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-20"
-          style={{ backgroundImage: 'url(/images/mini-pelle.jpg)' }}
-        />
+        <Image src="/images/mini-pelle.jpg" alt="" fill className="object-cover opacity-20" />
         <div className="absolute inset-0 bg-gradient-to-b from-primary/50 to-primary" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <span className="text-secondary font-semibold text-sm uppercase tracking-widest">Location</span>
@@ -150,11 +148,14 @@ export default function LocationMaterielPage() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {category.items.map((item) => (
-                  <div key={item.name} className="card-hover bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
+                  <div key={item.name} className="group bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-2xl hover:shadow-secondary/10 transition-all duration-500 hover:-translate-y-1">
                     <div className="relative h-48 overflow-hidden">
-                      <div
-                        className="absolute inset-0 bg-cover bg-center hover:scale-110 transition-transform duration-500"
-                        style={{ backgroundImage: `url(${item.image})` }}
+                      <Image
+                        src={item.image}
+                        alt={item.name}
+                        fill
+                        className="object-cover group-hover:scale-110 transition-transform duration-700"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-primary/50 to-transparent" />
                     </div>

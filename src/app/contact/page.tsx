@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, FormEvent } from 'react';
+import Image from 'next/image';
 import { MapPin, Phone, Mail, Clock, Send, CheckCircle, Loader2, AlertCircle } from 'lucide-react';
 
 const contactInfo = [
@@ -77,10 +78,7 @@ export default function ContactPage() {
     <>
       {/* Hero */}
       <section className="relative py-32 bg-primary overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-20"
-          style={{ backgroundImage: 'url(/images/ferraillage-dalle-ouvrier.jpg)' }}
-        />
+        <Image src="/images/ferraillage-dalle-ouvrier.jpg" alt="" fill className="object-cover opacity-20" />
         <div className="absolute inset-0 bg-gradient-to-b from-primary/50 to-primary" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <span className="text-secondary font-semibold text-sm uppercase tracking-widest">Contactez-nous</span>

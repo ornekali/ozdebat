@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   Building2, PaintBucket, Hammer, HardHat, Ruler, ArrowRight,
   CheckCircle2, Phone
@@ -93,17 +94,21 @@ export default function ServicesPage() {
     <>
       {/* Hero */}
       <section className="relative py-32 bg-primary overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-20"
-          style={{ backgroundImage: 'url(/images/chantier-ferraillage-mur.jpg)' }}
+        <Image
+          src="/images/chantier-ferraillage-mur.jpg"
+          alt=""
+          fill
+          className="object-cover opacity-20"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-primary/50 to-primary" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="text-secondary font-semibold text-sm uppercase tracking-widest">Nos Expertises</span>
-          <h1 className="text-5xl sm:text-6xl font-bold text-white mt-4 mb-6">
-            Nos <span className="text-secondary">Services</span>
+          <span className="inline-block px-4 py-1.5 bg-white/10 text-secondary rounded-full text-sm font-semibold uppercase tracking-widest mb-4">
+            Nos Expertises
+          </span>
+          <h1 className="text-5xl sm:text-6xl font-bold text-white mt-2 mb-6">
+            Nos <span className="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-accent">Services</span>
           </h1>
-          <p className="text-xl text-white/70 max-w-2xl mx-auto">
+          <p className="text-xl text-white/60 max-w-2xl mx-auto">
             Une gamme complète de services BTP pour répondre à tous vos besoins
             de construction et rénovation en Île-de-France.
           </p>
@@ -118,14 +123,17 @@ export default function ServicesPage() {
               <div
                 key={service.id}
                 id={service.id}
-                className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-12 items-center scroll-mt-24`}
+                className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-12 items-center scroll-mt-28`}
               >
                 {/* Image */}
                 <div className="flex-1 w-full">
-                  <div className="relative rounded-2xl overflow-hidden shadow-2xl group">
-                    <div
-                      className="aspect-[4/3] bg-cover bg-center group-hover:scale-105 transition-transform duration-700"
-                      style={{ backgroundImage: `url(${service.image})` }}
+                  <div className="relative rounded-3xl overflow-hidden shadow-2xl group aspect-[4/3]">
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-700"
+                      sizes="(max-width: 1024px) 100vw, 50vw"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent" />
                     <div className="absolute top-4 left-4 w-14 h-14 bg-secondary rounded-2xl flex items-center justify-center shadow-lg">
@@ -139,7 +147,7 @@ export default function ServicesPage() {
                   <h2 className="text-3xl sm:text-4xl font-bold text-primary mb-4">
                     {service.title}
                   </h2>
-                  <div className="section-divider mb-6" />
+                  <div className="w-16 h-1 bg-gradient-to-r from-secondary to-accent rounded-full mb-6" />
                   <p className="text-gray-600 text-lg leading-relaxed mb-8">
                     {service.description}
                   </p>
@@ -153,7 +161,7 @@ export default function ServicesPage() {
                   </ul>
                   <Link
                     href="/devis"
-                    className="inline-flex items-center gap-2 bg-secondary hover:bg-secondary/90 text-white px-6 py-3 rounded-xl font-semibold transition-all group"
+                    className="inline-flex items-center gap-2 bg-secondary hover:bg-secondary/90 text-white px-6 py-3 rounded-2xl font-semibold transition-all group hover:shadow-lg hover:shadow-secondary/25 active:scale-95"
                   >
                     Demander un Devis
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -178,14 +186,14 @@ export default function ServicesPage() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href="/devis"
-              className="inline-flex items-center gap-2 bg-secondary hover:bg-secondary/90 text-white px-8 py-4 rounded-xl text-lg font-semibold transition-all group"
+              className="inline-flex items-center gap-2 bg-secondary hover:bg-secondary/90 text-white px-8 py-4 rounded-2xl text-lg font-semibold transition-all group hover:shadow-lg hover:shadow-secondary/25 active:scale-95"
             >
               Devis Gratuit
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
             <a
               href="tel:+33768059389"
-              className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-xl text-lg font-medium transition-all"
+              className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-2xl text-lg font-medium transition-all"
             >
               <Phone className="w-5 h-5" />
               07 68 05 93 89
